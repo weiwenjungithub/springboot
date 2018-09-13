@@ -31,20 +31,34 @@ public class LogAspect {
     @Pointcut("@annotation(com.wwj.springboot.annotation.OperationLogDetail)")
     public void operationLog(){}
 
-    @Before("operationLog()")
-    public void doBeforeAdvice(JoinPoint joinPoint){
-        try {
-            addOperationLog(joinPoint);
-        }catch (Exception e){
-            System.out.println("LogAspect 操作失败：" + e.getMessage());
-            e.printStackTrace();
-        }
 
+    /**
+     * 环绕增强，相当于MethodInterceptor
+     */
+    @Around("operationLog()")
+    public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
+        Object res = null;
+        long time = System.currentTimeMillis();
+        try {
+            res =  joinPoint.proceed();
+            time = System.currentTimeMillis() - time;
+            return res;
+        } finally {
+            try {
+                //方法执行完成后增加日志
+                addOperationLog(joinPoint,res,time);
+            }catch (Exception e){
+                System.out.println("LogAspect 操作失败：" + e.getMessage());
+                e.printStackTrace();
+            }
+        }
     }
 
-    private void addOperationLog(JoinPoint joinPoint){
+    private void addOperationLog(JoinPoint joinPoint, Object res, long time){
         MethodSignature signature = (MethodSignature)joinPoint.getSignature();
         OperationLog operationLog = new OperationLog();
+        operationLog.setRunTime(time);
+        operationLog.setReturnValue(JSON.toJSONString(res));
         operationLog.setId(UUID.randomUUID().toString());
         operationLog.setArgs(JSON.toJSONString(joinPoint.getArgs()));
         operationLog.setCreateTime(new Date());
@@ -91,6 +105,12 @@ public class LogAspect {
         return detail;
     }
 
+    @Before("operationLog()")
+    public void doBeforeAdvice(JoinPoint joinPoint){
+        System.out.println("进入方法前执行.....");
+
+    }
+
     /**
      * 处理完请求，返回内容
      * @param ret
@@ -118,19 +138,4 @@ public class LogAspect {
         System.out.println("方法最后执行.....");
     }
 
-    /**
-     * 环绕通知,环绕增强，相当于MethodInterceptor
-     */
-    @Around("operationLog()")
-    public Object arround(ProceedingJoinPoint pjp) {
-        System.out.println("方法环绕start.....");
-        try {
-            Object o =  pjp.proceed();
-            System.out.println("方法环绕proceed，结果是 :" + o);
-            return o;
-        } catch (Throwable e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 }

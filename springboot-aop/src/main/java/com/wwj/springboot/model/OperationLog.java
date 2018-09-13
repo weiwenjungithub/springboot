@@ -9,6 +9,20 @@ import java.util.Date;
  * @date 2018/9/12
  */
 public class OperationLog {
+
+    private String id;
+    private Date createTime;
+    private Integer level;
+    private String operationUnit;
+    private String method;
+    private String args;
+    private String userId;
+    private String userName;
+    private String describe;
+    private String operationType;
+    private Long runTime;
+    private String returnValue;
+
     @Override
     public String toString() {
         return "OperationLog{" +
@@ -22,19 +36,26 @@ public class OperationLog {
                 ", userName='" + userName + '\'' +
                 ", describe='" + describe + '\'' +
                 ", operationType='" + operationType + '\'' +
+                ", runTime=" + runTime +
+                ", returnValue='" + returnValue + '\'' +
                 '}';
     }
 
-    private String id;
-    private Date createTime;
-    private Integer level;
-    private String operationUnit;
-    private String method;
-    private String args;
-    private String userId;
-    private String userName;
-    private String describe;
-    private String operationType;
+    public Long getRunTime() {
+        return runTime;
+    }
+
+    public void setRunTime(Long runTime) {
+        this.runTime = runTime;
+    }
+
+    public String getReturnValue() {
+        return returnValue;
+    }
+
+    public void setReturnValue(String returnValue) {
+        this.returnValue = returnValue;
+    }
 
     public String getId() {
         return id;
