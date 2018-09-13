@@ -36,7 +36,7 @@ public class LogAspect {
      * 环绕增强，相当于MethodInterceptor
      */
     @Around("operationLog()")
-    public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object doAround(ProceedingJoinPoint joinPoint) throws Throwable {
         Object res = null;
         long time = System.currentTimeMillis();
         try {
@@ -114,10 +114,9 @@ public class LogAspect {
     /**
      * 处理完请求，返回内容
      * @param ret
-     * @throws Throwable
      */
     @AfterReturning(returning = "ret", pointcut = "operationLog()")
-    public void doAfterReturning(Object ret) throws Throwable {
+    public void doAfterReturning(Object ret) {
         System.out.println("方法的返回值 : " + ret);
     }
 
