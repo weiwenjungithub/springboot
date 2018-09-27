@@ -1,0 +1,30 @@
+server:
+  port: 9001
+spring:
+  redis:
+#    cluster:
+#      max-redirects: 1 # Maximum number of redirects to follow when executing commands across the cluster.
+#      nodes: 1 # Comma-separated list of "host:port" pairs to bootstrap from.
+    database: 0 # Database index used by the connection factory.
+    url: redis://user:123@127.0.0.1:6379 # Connection URL. Overrides host, port, and password. User is ignored. Example: redis://user:password@example.com:6379
+    host: 127.0.0.1 # Redis server host.
+#    jedis:
+#      pool:
+#        max-active: 8 # Maximum number of connections that can be allocated by the pool at a given time. Use a negative value for no limit.
+#        max-idle: 8 # Maximum number of "idle" connections in the pool. Use a negative value to indicate an unlimited number of idle connections.
+#        max-wait: -1ms # Maximum amount of time a connection allocation should block before throwing an exception when the pool is exhausted. Use a negative value to block indefinitely.
+#        min-idle: 0 # Target for the minimum number of idle connections to maintain in the pool. This setting only has an effect if it is positive.
+#    lettuce:
+#      pool:
+#        max-active: 8 # Maximum number of connections that can be allocated by the pool at a given time. Use a negative value for no limit.
+#        max-idle: 8 # Maximum number of "idle" connections in the pool. Use a negative value to indicate an unlimited number of idle connections.
+#        max-wait: -1ms # Maximum amount of time a connection allocation should block before throwing an exception when the pool is exhausted. Use a negative value to block indefinitely.
+#        min-idle: 0 # Target for the minimum number of idle connections to maintain in the pool. This setting only has an effect if it is positive.
+#      shutdown-timeout: 100ms # Shutdown timeout.
+    password: 123  # Login password of the redis server.
+    port: 6379 # Redis server port.
+#    sentinel:
+#      master: 1 # Name of the Redis server.
+#      nodes: 1 # Comma-separated list of "host:port" pairs.
+    ssl: false # Whether to enable SSL support.
+    timeout: 5000 # Connection timeout.
