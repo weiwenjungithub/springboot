@@ -35,7 +35,7 @@ public class Producer {
     private void offer(String name){
         try {
             String str = String.valueOf(count.incrementAndGet());
-            System.out.println(name + "号生产消息：" + str);
+            System.out.println(name + "生产消息：" + str);
             BlockingQueueMessage.queue.offer(str, 2, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
