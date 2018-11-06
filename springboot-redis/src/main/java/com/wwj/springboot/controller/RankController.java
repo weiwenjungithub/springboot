@@ -1,10 +1,14 @@
 package com.wwj.springboot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.DefaultTypedTuple;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -22,6 +26,8 @@ public class RankController {
 
     @RequestMapping("/add")
     public String add() {
+        HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
+        objectObjectHashMap.put("a","a");
         redisTemplate.opsForZSet().add(SCORE_RANK, "张三1", 54);
         redisTemplate.opsForZSet().add(SCORE_RANK, "张三2", 57);
         redisTemplate.opsForZSet().add(SCORE_RANK, "张三3", 21);
@@ -33,12 +39,15 @@ public class RankController {
         redisTemplate.opsForZSet().add(SCORE_RANK, "张三9", 38);
         redisTemplate.opsForZSet().add(SCORE_RANK, "张三10", 22);
         redisTemplate.opsForZSet().add(SCORE_RANK, "张三11", 1);
+        Set<ZSetOperations.TypedTuple<String>> tuples = new HashSet<>();
+        DefaultTypedTuple<String> tuple = new DefaultTypedTuple<>("张三", 20D);
+
+        redisTemplate.opsForZSet().remove(SCORE_RANK,"");
         return "新增成功";
     }
 
     @RequestMapping("/rank")
     public void set() {
-
         long startRank = 0;
         long endRank = 5;
         Set<String> rangeSet = redisTemplate.opsForZSet().range(SCORE_RANK, startRank, endRank);
