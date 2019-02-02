@@ -14,6 +14,9 @@
         <module>springboot-shiro</module>
         <module>springboot-cache</module>
         <module>springboot-queue</module>
+        <module>springboot-docker</module>
+        <module>springboot-bean</module>
+        <module>springboot-filter</module>
     </modules>
 
     <!-- Inherit defaults from Spring Boot -->

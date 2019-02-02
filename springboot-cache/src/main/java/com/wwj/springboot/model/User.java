@@ -1,11 +1,15 @@
 package com.wwj.springboot.model;
 
+import java.io.Serializable;
+
 /**
  * @author weiwenjun
  * @since 2018/11/1
  */
-public class User {
+public class User implements Serializable {
 
+    public User() {
+    }
 
     private String name;
     private String address;

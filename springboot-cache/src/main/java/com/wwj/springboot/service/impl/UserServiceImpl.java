@@ -2,9 +2,11 @@ package com.wwj.springboot.service.impl;
 
 import com.wwj.springboot.model.User;
 import com.wwj.springboot.service.UserService;
+import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import javax.crypto.KeyGenerator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +15,11 @@ import java.util.List;
  * @since 2018/11/1
  */
 @Service
+@CacheConfig(cacheNames = "userServiceImpl")
 public class UserServiceImpl implements UserService {
 
     @Override
-    @Cacheable(value="list",key="userList")
+    @Cacheable(key = "'userList'")
     public List<User> list() {
         System.out.println("不从缓存获取.");
         List<User> list = new ArrayList<>();
