@@ -13,14 +13,14 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class Consumer {
 
-    @Scheduled(fixedDelay = 5000)
+    @Scheduled(fixedDelay = 3000)
     public void consumerMessage() {
         boolean isRunning = true;
         while (isRunning) {
             try {
                 String msg = BlockingQueueMessage.queue.poll(2, TimeUnit.SECONDS);
                 if (null != msg) {
-                    System.out.println("接收到的消息：" + msg);
+                    System.out.println("---接收到的消息---：" + msg);
                 } else {
                     isRunning = false;
                 }

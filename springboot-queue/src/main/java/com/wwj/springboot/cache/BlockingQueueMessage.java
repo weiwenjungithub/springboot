@@ -1,5 +1,7 @@
 package com.wwj.springboot.cache;
 
+import com.wwj.springboot.constant.Constants;
+
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -8,5 +10,5 @@ import java.util.concurrent.LinkedBlockingQueue;
  * @since 2018/11/6
  */
 public class BlockingQueueMessage {
-    public static BlockingQueue<String> queue = new LinkedBlockingQueue<>(10);
+    public static BlockingQueue<String> queue = new LinkedBlockingQueue<>(Constants.queueNum);
 }
