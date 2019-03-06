@@ -1,7 +1,5 @@
 package com.wwj.springboot.core;
 
-import org.springframework.stereotype.Component;
-
 /**
  * @author weiwenjun
  * @since 2019/2/20
