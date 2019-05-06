@@ -17,6 +17,7 @@
         <module>springboot-docker</module>
         <module>springboot-bean</module>
         <module>springboot-filter</module>
+        <module>springboot-limiter</module>
     </modules>
 
     <!-- Inherit defaults from Spring Boot -->

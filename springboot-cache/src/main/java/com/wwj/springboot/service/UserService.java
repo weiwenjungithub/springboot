@@ -9,5 +9,22 @@ import java.util.List;
  * @since 2018/11/1
  */
 public interface UserService {
-    List<User> list();
+
+    /**
+     * 获取用户
+     * @return user
+     */
+    User findUser();
+
+    /**
+     * 更新用户信息
+     * @return user
+     */
+    User updateUser();
+
+    /**
+     * 清除缓存的用户信息
+     */
+    void clearUser();
+
 }

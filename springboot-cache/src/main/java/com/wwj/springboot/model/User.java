@@ -11,26 +11,18 @@ public class User implements Serializable {
     public User() {
     }
 
+    private String id;
     private String name;
     private String address;
     private String tel;
     private Integer age;
 
-    public User(String name, String address, String tel, Integer age) {
-        this.name = name;
-        this.address = address;
-        this.tel = tel;
-        this.age = age;
+    public String getId() {
+        return id;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", tel='" + tel + '\'' +
-                ", age=" + age +
-                '}';
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -63,5 +55,24 @@ public class User implements Serializable {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public User(String id, String name, String address, String tel, Integer age) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.tel = tel;
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", tel='" + tel + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
