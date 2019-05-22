@@ -1,4 +1,2 @@
 server:
-  port: 11000
-testBean:
-  name: www
+  port: 8111
