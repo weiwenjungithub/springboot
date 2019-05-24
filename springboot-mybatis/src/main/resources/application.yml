@@ -1,0 +1,9 @@
+server:
+  port: 8083
+spring:
+  datasource:
+      name: epaas
+      url: jdbc:mysql://10.40.6.118:3306/epaas?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&failOverReadOnly=false&autoReconnect=true&useSSL=false
+      username: root
+      password: epaas123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
