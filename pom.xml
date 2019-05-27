@@ -18,6 +18,7 @@
         <module>springboot-bean</module>
         <module>springboot-filter</module>
         <module>springboot-limiter</module>
+        <module>springboot-factorybean</module>
     </modules>
 
     <!-- Inherit defaults from Spring Boot -->
