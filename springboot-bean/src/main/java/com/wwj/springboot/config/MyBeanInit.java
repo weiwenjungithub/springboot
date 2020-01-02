@@ -22,13 +22,13 @@ public class MyBeanInit implements BeanPostProcessor, InitializingBean, BeanDefi
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-//        System.out.println("BeanPostProcessor:postProcessBeforeInitialization:" + beanName + "........................");
+        System.out.println("BeanPostProcessor:postProcessBeforeInitialization:" + beanName + "........................");
         return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-//        System.out.println("BeanPostProcessor:postProcessAfterInitialization" + beanName + "........................");
+        System.out.println("BeanPostProcessor:postProcessAfterInitialization" + beanName + "........................");
         return bean;
     }
 

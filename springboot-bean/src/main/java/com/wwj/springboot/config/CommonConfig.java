@@ -3,7 +3,12 @@ package com.wwj.springboot.config;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.ApplicationEvent;
+import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
 
 /**
  * ApplicationContextAware的最本质的应用就是：对当前bean传入对应的Spring上下文。
@@ -17,8 +22,20 @@ import org.springframework.stereotype.Component;
  * @author weiwenjun
  */
 @Component
-public class CommonConfig implements ApplicationContextAware {
+public class CommonConfig implements ApplicationContextAware, ApplicationListener, InvocationHandler {
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        System.out.println("ApplicationContextAware.setApplicationContext......................");
+    }
+
+    @Override
+    public void onApplicationEvent(ApplicationEvent event) {
+        System.out.println("ApplicationListener.onApplicationEvent......................");
+
+    }
+
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        return null;
     }
 }

@@ -18,12 +18,12 @@ public class SpringbootMybatisApplication {
         SpringApplication.run(SpringbootMybatisApplication.class, args);
     }
 
-   /*   @Resource
+      @Resource
     private CityMapper cityMapper;
 
     @PostConstruct
     public void test(){
         User byState = cityMapper.findByState("");
         System.out.println(byState.getName());
-    }*/
+    }
 }

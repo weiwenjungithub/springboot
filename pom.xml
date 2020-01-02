@@ -19,13 +19,16 @@
         <module>springboot-filter</module>
         <module>springboot-limiter</module>
         <module>springboot-factorybean</module>
+        <module>springboot-zookeeper</module>
+        <module>ceph</module>
+        <module>springboot-rabbitmq</module>
     </modules>
 
     <!-- Inherit defaults from Spring Boot -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.4.RELEASE</version>
+        <version>2.2.2.RELEASE</version>
     </parent>
     <properties>
         <fastjson.version>1.2.49</fastjson.version>
@@ -37,7 +40,7 @@
                 <!-- Import dependency management from Spring Boot -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.0.4.RELEASE</version>
+                <version>2.2.2.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

@@ -1,0 +1,9 @@
+server:
+  port: 8021
+spring:
+  rabbitmq:
+    host: 10.60.48.246
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: wwj
